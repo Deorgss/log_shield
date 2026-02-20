@@ -11,7 +11,7 @@ my $threshold = $ARGV[1] * 1000 // 100000;
 my %ip_stats;
 my $fh;
 
-print "--- LogShield: Analysis Started ---\n";
+print "--- LogShield: Analysis Started with threshold #$threshold ---\n";
 
 # Открываем файл лога
 if (!open($fh, '<', $log_file)) {
