@@ -3,14 +3,18 @@ use strict;
 use warnings;
 
 # Настройки
-my $log_file = 'access.log'; # Путь к логу
-my $threshold = 100;         # Лимит запросов, после которого IP считается подозрительным
+# Принимаем путь к логу из первого аргумента командной строки
+# Если аргумент не передан, используем 'access.log' по умолчанию
+my $log_file = $ARGV[0] // '/var/log/nginx/access.log';
+# Лимит запросов, после которого IP считается подозрительным
+my $threshold = $ARGV[1] // 100000;
 my %ip_stats;
+my $fh;
 
 print "--- LogShield: Analysis Started ---\n";
 
 # Открываем файл лога
-if (!open(my $fh, '<', $log_file)) {
+if (!open($fh, '<', $log_file)) {
     die "Could not open log file: $!";
 }
 
