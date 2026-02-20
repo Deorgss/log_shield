@@ -7,7 +7,7 @@ use warnings;
 # Если аргумент не передан, используем 'access.log' по умолчанию
 my $log_file = $ARGV[0] // '/var/log/nginx/access.log';
 # Лимит запросов, после которого IP считается подозрительным
-my $threshold = $ARGV[1] // 100000;
+my $threshold = $ARGV[1] * 1000 // 100000;
 my %ip_stats;
 my $fh;
 
