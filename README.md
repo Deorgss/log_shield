@@ -29,6 +29,18 @@ Current Threshold: 100 (represents 100,000 requests).
 
 Flagging: Any IP address exceeding this limit will be highlighted in the report with a (POTENTIAL ATTACK) tag.
 
+## 💾 Exporting Results
+You can easily save the report to a text file using standard shell redirection:
+
+Create new report:
+```
+perl log_analyzer.pl > report.txt
+```
+
+Append to history:
+```
+perl log_analyzer.pl >> security_audit.log
+```
 
 ## Why Perl?
 
